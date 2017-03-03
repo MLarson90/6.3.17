@@ -1,0 +1,58 @@
+.topBar{
+  background-color: red;
+  margin-top: 0;
+  border-bottom: 4px solid black;
+}
+#top{
+  font-size: 90px;
+  color:white;
+  text-align: center;
+  padding: 50px;
+}
+.description{
+  border:2px solid black;
+  height:420px;
+  margin-top: 10px;
+}
+.description h2{
+  background-color: red;
+  color:white;
+  margin:0px;
+  padding:10px;
+}
+.description p{
+  font-size: 15px;
+  font-weight: bold;
+  margin: 10px;
+}
+/*order size buttons*/
+#sizeHawian{
+  margin-top: 370px;
+  margin-left: 10px;
+  position: absolute;
+}
+#sizeJack{
+  margin-top: 370px;
+  margin-left: 10px;
+  position: absolute;
+}
+#sizeHeart{
+  margin-top: 370px;
+  margin-left: 10px;
+  position: absolute;
+}
+#sizeChicken{
+  margin-top: 370px;
+  margin-left: 10px;
+  position: absolute;
+}
+#sizeSteve{
+  margin-top: 370px;
+  margin-left: 10px;
+  position: absolute;
+}
+#sizeHealth{
+  margin-top: 370px;
+  margin-left: 10px;
+  position: absolute;
+}
