@@ -16,7 +16,9 @@
   CustomPizza.prototype.price = function (specialOne, specialTwo, specialThree,specialFour, specialFive, SpecialSix){
     return specialOne + specialTwo + specialThree + specialFour + specialFive + SpecialSix + this.zasize + this.sauceone + this.saucetwo + this.saucethree + this.meatone + this.meattwo + this.meatthree + this.meatfour + this.veggieone + this.veggietwo + this.veggiethree + this.veggiefour;
   }
-
+  var tax = function(pizzaPrice){
+    return pizzaPrice * .065;
+  }
 
 //frontend
 $(document).ready(function(){
@@ -42,6 +44,10 @@ $(document).ready(function(){
     var zuch = parseFloat($("#zuchinni").val());
     var newPizza = new CustomPizza(customSize,sauceRed,sauceBbq,sauceWhite,pepperoni,italian,bacon,meatBall,jalepeno,onion,bell,zuch)
     var newPrice = newPizza.price(hawaii, jack, heart, chicken, steve, health);
-    console.log(newPrice);
+    var newTax = tax(newPrice);
+    $("#listPrices").append("<li>" + "Pizza Total: " + newPrice + "</li>");
 });
+$("#done").click(function(event){
+  event.preventDefault();
+})
 });

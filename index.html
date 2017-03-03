@@ -12,6 +12,7 @@
       <h1 id="top">Zane's Zanny Zas</h1>
     </div>
     <div class="container">
+      <!--Special Pizzas-->
       <h2>Order one of our specialty zas...</h2>
       <form id="placeOrder">
         <div class="row">
@@ -90,9 +91,18 @@
             </div>
           </div>
         </div>
+        <!--Custom Pizzas-->
         <h2> Or build your own!</h2>
         <div class="row">
-          <div class="col-sm-4">
+          <div class="col-sm-3">
+              <div class="radio">
+                <label>
+                  <input type="radio" name="pizzaSize" value="0" checked>
+                  I just want one of your awesome specialty pizzas!
+                </label>
+              </div>
+          </div>
+          <div class="col-sm-3">
             <div class="radio">
               <label>
                 <input type="radio" name="pizzaSize" value="7">
@@ -100,7 +110,7 @@
               </label>
             </div>
           </div>
-          <div class="col-sm-4">
+          <div class="col-sm-3">
             <div class="radio">
               <label>
                 <input type="radio" name="pizzaSize" value="10">
@@ -108,7 +118,7 @@
               </label>
             </div>
           </div>
-          <div class="col-sm-4">
+          <div class="col-sm-3">
               <div class="radio">
                 <label>
                   <input type="radio" name="pizzaSize" value="13">
@@ -116,6 +126,8 @@
                 </label>
               </div>
           </div>
+        </div>
+          <!--Choose sauce-->
         <h3>You'e the boss choose a Sauce!</h3>
         <div class="row">
           <div class="col-sm-4">
@@ -152,6 +164,7 @@
             </div>
           </div>
         </div>
+        <!--Choose meat-->
         <h3>Did anyone say meat?</h3>
         <div class="row">
           <div class="col-sm-3">
@@ -199,6 +212,7 @@
             </div>
           </div>
         </div>
+        <!--Choose veggies-->
         <h3>Don't forget your veggies!</h3>
         <div class="row">
           <div class="col-sm-3">
@@ -249,5 +263,14 @@
         <button type="submit">Place Order</button>
       </form>
     </div>
+    <!-- Receive Price-->
+    <h1> Thanks for ordering with Zane's Zanny Zas!</h2>
+    <h2> The delicious Za's we are making for you are...</h2>
+    <ul id="pizzasOrdered"></ul>
+    <p id="done">Looks Good!</p>
+    <p>or</p>
+    <p id="morePizza">Maybe I want some more pizza!</p>
+    <!--Press look good for price-->
+    <ul id="listPrices"></ul>
   </body>
 </html>
