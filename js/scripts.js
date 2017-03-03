@@ -1,5 +1,5 @@
 //backend
-  function CustomPizza (zasize,sauceone,saucetwo,saucethree,meatone,meattwo,meatthree,meatfour,veggieone,veggietwo,veggiethree,veggiefour){
+  function CustomPizza (zasize,sauceone,saucetwo,saucethree,meatone,meattwo,meatthree,meatfour,veggieone,veggietwo,veggiethree,veggiefour, anotherPizza){
     this.zasize = zasize;
     this.sauceone = sauceone;
     this.saucetwo = saucetwo;
@@ -12,6 +12,7 @@
     this.veggietwo = veggietwo;
     this.veggiethree = veggiethree;
     this.veggiefour = veggiefour;
+    this.anotherPizza = [];
   }
   function SpecialPizza(specialOne, specialTwo, specialThree,specialFour, specialFive, specialSix){
     this.specialOne = specialOne;
@@ -21,15 +22,15 @@
     this.specialFive = specialFive;
     this.specialSix = specialSix
   }
-  // CustomPizza.prototype.blockChoices = function(){
-  //   if ((this.zasize === 0) && (this.sauceone !== 0) || (this.saucetwo !== 0) || (this.saucethree !== 0) ||
-  //   (this.meatone !== 0) || (this.meattwo !== 0) || (this.meatthree !== 0) || (this.meatfour !== 0) || (this.veggieone !== 0) || (this.veggietwo !== 0) ||
-  //   (this.veggiethree !== 0) || (this.veggiefour !==0)){
-  //     $("#placeOrder").show();
-  //     $(".orderConformation").hide();
-  //     alert("Please pick a size if you would like a custom pizza");
-  //   }
-  // }
+  CustomPizza.prototype.blockChoices = function(){
+    if ((this.zasize === 0) && ((this.sauceone !== 0) || (this.saucetwo !== 0) || (this.saucethree !== 0) ||
+    (this.meatone !== 0) || (this.meattwo !== 0) || (this.meatthree !== 0) || (this.meatfour !== 0) || (this.veggieone !== 0) || (this.veggietwo !== 0) ||
+    (this.veggiethree !== 0) || (this.veggiefour !==0))){
+      $("#placeOrder").show();
+      $(".orderConformation").hide();
+      alert("Please pick a size if you would like a custom pizza");
+    }
+  }
   CustomPizza.prototype.prntCustom = function(){
    if (this.zasize === 6){
      $("#customOrder").append("Small custom pizza with ");
@@ -76,12 +77,12 @@
    if(this.veggieone === .5){
      $("#customOrder").append("jalepeno, ");
    }else if (this.veggieone === 1){
-     $("#customOrder").append("a boat load of jalepeno, ");
+     $("#customOrder").append("a boat load of jalepenos, ");
    };
    if(this.veggietwo === .5){
      $("#customOrder").append("onion, ");
    }else if (this.veggietwo === 1){
-     $("#customOrder").append("an extra helping of onion, ");
+     $("#customOrder").append("an extra helping of onions, ");
    };
    if(this.veggiethree === .5){
      $("#customOrder").append("bell peppers, ");
@@ -93,7 +94,9 @@
    }else if (this.veggiefour === 1){
      $("#customOrder").append("a bunch  of zuchinni, ");
    };
-    $("#customOrder").append("and topped with our five cheese blend.");
+    if(this.zasize !== 0){
+      $("#customOrder").append("and topped with our five cheese blend." + "<br>");
+    };
   }
   SpecialPizza.prototype.prntSpecial= function(){
     $("#pizzasOrdered").empty();
@@ -167,9 +170,168 @@ $(document).ready(function(){
     $("#placeOrder").hide();
     $(".orderConformation").show();
     newPizza.prntCustom();
-    //newPizza.blockChoices();
-});
-$("#done").click(function(event){
+    newPizza.blockChoices();
+  });
+  $("#done").click(function(event){
   event.preventDefault();
-})
+  $("#listPrices").show();
+  });
+  $("#morePizza").click(function(event){
+    event.preventDefault();
+    $("#secondPizza").prepend('<div class="row">'+
+      '<div class="col-sm-3">'+
+          '<div class="radio">'+
+            '<label>'+
+              '<input type="radio" name="pizzaSize" value="0" checked>' +
+              'Nevermind my original order looks good' +
+            '</label>'+
+          '</div>' +
+        '</div>' +
+      '<div class="col-sm-3">' +
+        '<div class="radio">' +
+          '<label>' +
+            '<input type="radio" name="pizzaSize" value="6">' +
+            'Small $7' +
+          '</label>' +
+        '</div>' +
+      '</div>' +
+      '<div class="col-sm-3">' +
+        '<div class="radio">' +
+          '<label>' +
+            '<input type="radio" name="pizzaSize" value="9">' +
+            'Medium $10' +
+          '</label>' +
+        '</div>' +
+      '</div>' +
+      '<div class="col-sm-3">' +
+          '<div class="radio">' +
+            '<label>' +
+              '<input type="radio" name="pizzaSize" value="12">' +
+              'Large $13' +
+            '</label>' +
+          '</div>' +
+      '</div>' +
+     '</div>' +
+    "<h3>You'e the boss choose a Sauce!</h3>" +
+    '<div class="row">' +
+      '<div class="col-sm-4">' +
+        '<div class="customChoice">' +
+          '<select class="form-group" id="redSauce">' +
+            '<option value="0">Choose amount</option>' +
+            '<option value="1">Normal</option>' +
+            '<option value="1.5">Saucey! + .50</option>' +
+          '</select>' +
+          '<h2>Red Sauce</h2>' +
+        '</div>' +
+      '</div>' +
+      '<div class="col-sm-4">' +
+        '<div class="customChoice">' +
+          '<select class="form-group" id="bbq">' +
+            '<option value="0">Choose amount</option>' +
+            '<option value="1">Normal</option>' +
+            '<option value="1.5">Saucey! + .50</option>' +
+          '</select>' +
+          '<h2>BBQ Sauce</h2>' +
+        '</div>' +
+      '</div>' +
+      '<div class="col-sm-4">' +
+        '<div class="customChoice">' +
+          '<select class="form-group" id="whiteSauce">' +
+            '<option value="0">Choose amount</option>' +
+            '<option value="1">Normal</option>' +
+            '<option value="1.5">Saucey! + .50</option>' +
+          '</select>' +
+          '<h2>White Sauce</h2>' +
+        '</div>' +
+      '</div>' +
+    '</div>' +
+    '<h3>Did someone say meat?</h3>' +
+    '<div class="row">' +
+      '<div class="col-sm-3">' +
+        '<div class="customChoice">' +
+          '<select class="form-group" id="pepperoni">' +
+            '<option value="0">More you say?</option>' +
+            '<option value="1">Normal + $1</option>' +
+            '<option value="1.5">Loaded + $1.5</option>' +
+          '</select>' +
+          '<h2 class="pizzaName">Pepperoni</h2>' +
+        '</div>' +
+      '</div>' +
+      '<div class="col-sm-3">'+
+        '<div class="customChoice">'+
+          '<select class="form-group" id="italian">'+
+            '<option value="0">More you say?</option>'+
+            '<option value="1">Normal + $1</option>'+
+            '<option value="1.5">Loaded + $1.50</option>'+
+          '</select>'+
+          '<h2 class="pizzaName">Italian Sausage</h2>'+
+        '</div>'+
+      '</div>'+
+      '<div class="col-sm-3">'+
+        '<div class="customChoice">'+
+          '<select class="form-group" id="bacon">'+
+            '<option value="0">More you say?</option>'+
+            '<option value="1">Normal + $1</option>'+
+            '<option value="1.5">Loaded + $1.50</option>'+
+          '</select>'+
+          '<h2>Bacon</h2>'+
+        '</div>'+
+      '</div>'+
+      '<div class="col-sm-3">'+
+        '<div class="customChoice">'+
+          '<select class="form-group" id="meatBall">'+
+            '<option value="0">More you say?</option>'+
+            '<option value="1">Normal + $1</option>'+
+            '<option value="1.5">Loaded + $1.50</option>'+
+          '</select>'+
+          '<h2>MeatBall</h2>'+
+        '</div>'+
+      '</div>'+
+    '</div>'+
+    "<h3>Don't forget your veggies!</h3>"+
+    '<div class="row">'+
+      '<div class="col-sm-3">'+
+        '<div class="customChoice">'+
+          '<select class="form-group" id="jalepeno">'+
+            '<option value ="0">More you say?</option>'+
+            '<option value=".5">Normal + .50</option>'+
+            '<option value="1">Loaded + 1</option>'+
+          '</select>'+
+          '<h2 class="pizzaName">Jalepeno</h2>'+
+        '</div>'+
+      '</div>'+
+      '<div class="col-sm-3">'+
+        '<div class="customChoice">'+
+          '<select class="form-group" id="onion">'+
+            '<option value="0">More you say?</option>'+
+            '<option value=".5">Normal + .50</option>'+
+            '<option value="1">Loaded + 1</option>'+
+          '</select>'+
+          '<h2>Onion</h2>'+
+        '</div>'+
+      '</div>'+
+      '<div class="col-sm-3">'+
+        '<div class="customChoice">'+
+          '<select class="form-group" id="bellPepper">'+
+            '<option value="0">More you say?</option>'+
+            '<option value=".5">Normal + .50</option>'+
+            '<option value="1">Loaded + 1</option>'+
+          '</select>'+
+          '<h2>Bell Pepper</h2>'+
+        '</div>'+
+      '</div>'+
+      '<div class="col-sm-3">'+
+        '<div class="customChoice">'+
+          '<select class="form-group" id="zuchinni">'+
+            '<option value="0">More you say?</option>'+
+            '<option value=".5">Normal + .50</option>'+
+            '<option value="1">Loaded + 1</option>'+
+          '</select>'+
+          '<h2>Zuchinni</h2>'+
+        '</div>'+
+      '</div>'+
+    '</div>'+
+    '<button type="submit">Place Order</button>');
+    $("#morePizza").hide();
+  });
 });

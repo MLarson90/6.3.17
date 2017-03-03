@@ -134,9 +134,11 @@
 #listPrices{
   list-style-type: none;
   display:none;
+  margin: 20px 0 30px 40%;
+  font-size: 20px;
 }
 #customOrder{
   list-style-type: none;
-  font-size: 20px;
+  font-size: 25px;
   color:red;
 }
