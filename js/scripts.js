@@ -21,23 +21,79 @@
     this.specialFive = specialFive;
     this.specialSix = specialSix
   }
-  CustomPizza.prototype.blockChoices = function(){
-    if ((this.zasize === 0) && (this.sauceone !== 0) || (this.saucetwo !== 0) || (this.saucethree !== 0) ||
-    (this.meatone !== 0) || (this.meattwo !== 0) || (this.meatthree !== 0) || (this.meatfour !== 0) || (this.veggieone !== 0) || (this.veggietwo !== 0) ||
-    (this.veggiethree !== 0) || (this.veggiefour !==0)){
-      $("#placeOrder").show();
-      $(".orderConformation").hide();
-      alert("Please pick a size if you would like a custom pizza");
-    }
-  }
+  // CustomPizza.prototype.blockChoices = function(){
+  //   if ((this.zasize === 0) && (this.sauceone !== 0) || (this.saucetwo !== 0) || (this.saucethree !== 0) ||
+  //   (this.meatone !== 0) || (this.meattwo !== 0) || (this.meatthree !== 0) || (this.meatfour !== 0) || (this.veggieone !== 0) || (this.veggietwo !== 0) ||
+  //   (this.veggiethree !== 0) || (this.veggiefour !==0)){
+  //     $("#placeOrder").show();
+  //     $(".orderConformation").hide();
+  //     alert("Please pick a size if you would like a custom pizza");
+  //   }
+  // }
   CustomPizza.prototype.prntCustom = function(){
    if (this.zasize === 6){
-     $("#customOrder").text("Small custom pizza with ");
+     $("#customOrder").append("Small custom pizza with ");
    }else if (this.zasize === 9){
-     $("#customOrder").text("Medium custom pizza with ");
+     $("#customOrder").append("Medium custom pizza with ");
    }else if (this.zasize === 12){
-     $("#customOrder").text("Large custom pizza with ");
-   }
+     $("#customOrder").append("Large custom pizza with ");
+   };
+   if (this.sauceone === 1){
+     $("#customOrder").append("red sauce, ");
+   }else if(this.sauceone === 1.5){
+     $("#customOrder").append("extra saucy red sauce, ");
+   };
+   if (this.saucetwo === 1){
+     $("#customOrder").append("BBQ sauce, ");
+   }else if(this.saucetwo === 1.5){
+     $("#customOrder").append("extra saucy BBQ sauce, ");
+   };
+   if (this.saucethree === 1){
+     $("#customOrder").append("white sauce, ");
+   }else if(this.saucethree === 1.5){
+     $("#customOrder").append("extra saucy white sauce, ");
+   };
+   if(this.meatone === 1){
+     $("#customOrder").append("pepperoni, ");
+   }else if(this.meatone === 1.5){
+     $("#customOrder").append("loaded up with pepperoni, ");
+   };
+   if(this.meattwo === 1){
+     $("#customOrder").append("itailian sausage, ");
+   }else if(this.meattwo === 1.5){
+     $("#customOrder").append("loaded to the top with italian sausage, ");
+   };
+   if(this.meatthree === 1){
+     $("#customOrder").append("bacon, ");
+   }else if(this.meatthree === 1.5){
+     $("#customOrder").append("so much bacon you could make a new pig, ");
+   };
+   if(this.meatfour === 1){
+     $("#customOrder").append("meatball, ");
+   }else if(this.meatfour === 1.5){
+     $("#customOrder").append("piled high with meatballs, ");
+   };
+   if(this.veggieone === .5){
+     $("#customOrder").append("jalepeno, ");
+   }else if (this.veggieone === 1){
+     $("#customOrder").append("a boat load of jalepeno, ");
+   };
+   if(this.veggietwo === .5){
+     $("#customOrder").append("onion, ");
+   }else if (this.veggietwo === 1){
+     $("#customOrder").append("an extra helping of onion, ");
+   };
+   if(this.veggiethree === .5){
+     $("#customOrder").append("bell peppers, ");
+   }else if (this.veggiethree === 1){
+     $("#customOrder").append("a liberty bell full of bell peppers, ");
+   };
+   if(this.veggiefour === .5){
+     $("#customOrder").append("zuchinni, ");
+   }else if (this.veggiefour === 1){
+     $("#customOrder").append("a bunch  of zuchinni, ");
+   };
+    $("#customOrder").append("and topped with our five cheese blend.");
   }
   SpecialPizza.prototype.prntSpecial= function(){
     $("#pizzasOrdered").empty();
@@ -110,8 +166,8 @@ $(document).ready(function(){
     prntTotals(newPrice, newTax, newTotal);
     $("#placeOrder").hide();
     $(".orderConformation").show();
-    newPizza.blockChoices();
     newPizza.prntCustom();
+    //newPizza.blockChoices();
 });
 $("#done").click(function(event){
   event.preventDefault();
