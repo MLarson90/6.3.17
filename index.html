@@ -13,8 +13,8 @@
     </div>
     <div class="container">
       <!--Special Pizzas-->
-      <h2>Order one of our specialty zas...</h2>
       <form id="placeOrder">
+        <h2>Order one of our specialty zas...</h2>
         <div class="row">
           <div class="col-sm-4">
             <div class="description">
@@ -74,8 +74,8 @@
                 <option value="17">Medium $17</option>
                 <option value="15">Small $15</option>
               </select>
-              <h2 class="pizzaName">Steezy Steve's Pepporoni and Cheese</h2>
-              <p class="pizzaDescription">This is no ordinary pepporoni pizza, we brought out the big guns to give you a classic in a new way. Start with our red sauce, add a layer of pepporoni then a layer of mozzerella. Done Right? NO! Then we add another layer of pepperoni topped with a 5 cheese blend that will make you forget other pizza spots even exist and for good measure another layer of that tasty pepporoni!</p>
+              <h2 class="pizzaName">Steezy Steve's Pepperoni and Cheese</h2>
+              <p class="pizzaDescription">This is no ordinary pepperoni pizza, we brought out the big guns to give you a classic in a new way. Start with our red sauce, add a layer of pepporoni then a layer of mozzerella. Done Right? NO! Then we add another layer of pepperoni topped with a 5 cheese blend that will make you forget other pizza spots even exist and for good measure another layer of that tasty pepporoni!</p>
             </div>
           </div>
           <div class="col-sm-4">
@@ -105,7 +105,7 @@
           <div class="col-sm-3">
             <div class="radio">
               <label>
-                <input type="radio" name="pizzaSize" value="7">
+                <input type="radio" name="pizzaSize" value="6">
                 Small $7
               </label>
             </div>
@@ -113,7 +113,7 @@
           <div class="col-sm-3">
             <div class="radio">
               <label>
-                <input type="radio" name="pizzaSize" value="10">
+                <input type="radio" name="pizzaSize" value="9">
                 Medium $10
               </label>
             </div>
@@ -121,7 +121,7 @@
           <div class="col-sm-3">
               <div class="radio">
                 <label>
-                  <input type="radio" name="pizzaSize" value="13">
+                  <input type="radio" name="pizzaSize" value="12">
                   Large $13
                 </label>
               </div>
@@ -134,8 +134,8 @@
             <div class="customChoice">
               <select class="form-group" id="redSauce">
                 <option value="0">Choose amount</option>
-                <option value="0">Normal</option>
-                <option value=".5">Saucey! + .50</option>
+                <option value="1">Normal</option>
+                <option value="1.5">Saucey! + .50</option>
               </select>
               <h2>Red Sauce</h2>
               <p></p>
@@ -145,8 +145,8 @@
             <div class="customChoice">
               <select class="form-group" id="bbq">
                 <option value="0">Choose amount</option>
-                <option value="0">Normal</option>
-                <option value=".5">Saucey! + .50</option>
+                <option value="1">Normal</option>
+                <option value="1.5">Saucey! + .50</option>
               </select>
               <h2>BBQ Sauce</h2>
               <p class="pizzaDescription"></p>
@@ -156,8 +156,8 @@
             <div class="customChoice">
               <select class="form-group" id="whiteSauce">
                 <option value="0">Choose amount</option>
-                <option value="0">Normal</option>
-                <option value=".5">Saucey! + .50</option>
+                <option value="1">Normal</option>
+                <option value="1.5">Saucey! + .50</option>
               </select>
               <h2>White Sauce</h2>
               <p></p>
@@ -264,13 +264,17 @@
       </form>
     </div>
     <!-- Receive Price-->
-    <h1> Thanks for ordering with Zane's Zanny Zas!</h2>
-    <h2> The delicious Za's we are making for you are...</h2>
-    <ul id="pizzasOrdered"></ul>
-    <p id="done">Looks Good!</p>
-    <p>or</p>
-    <p id="morePizza">Maybe I want some more pizza!</p>
+    <div class=orderConformation>
+      <h1> Thanks for ordering with Zane's Zanny Zas!</h2>
+      <h2> The delicious Zas we are making for you are...</h2>
+      <ul id="pizzasOrdered"></ul>
+      <li id="customOrder"></li>
+      <button type="submit"id="done">Looks Good!</button>
+      <p>or</p>
+      <button type="submit" id="morePizza">Maybe I want some more pizza!</button>
+   </div>
     <!--Press look good for price-->
     <ul id="listPrices"></ul>
+
   </body>
 </html>

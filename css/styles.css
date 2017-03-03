@@ -122,3 +122,21 @@
   margin-left: 10px;
   position: absolute;
 }
+.orderConformation{
+  display:none;
+  text-align: center;
+}
+#pizzasOrdered{
+  list-style-type: none;
+  font-size: 30px;
+  color:red;
+}
+#listPrices{
+  list-style-type: none;
+  display:none;
+}
+#customOrder{
+  list-style-type: none;
+  font-size: 30px;
+  color:red;
+}

@@ -13,11 +13,70 @@
     this.veggiethree = veggiethree;
     this.veggiefour = veggiefour;
   }
-  CustomPizza.prototype.price = function (specialOne, specialTwo, specialThree,specialFour, specialFive, SpecialSix){
-    return specialOne + specialTwo + specialThree + specialFour + specialFive + SpecialSix + this.zasize + this.sauceone + this.saucetwo + this.saucethree + this.meatone + this.meattwo + this.meatthree + this.meatfour + this.veggieone + this.veggietwo + this.veggiethree + this.veggiefour;
+  function SpecialPizza(specialOne, specialTwo, specialThree,specialFour, specialFive, specialSix){
+    this.specialOne = specialOne;
+    this.specialTwo = specialTwo;
+    this.specialThree = specialThree;
+    this.specialFour = specialFour;
+    this.specialFive = specialFive;
+    this.specialSix = specialSix
   }
+  CustomPizza.prototype.blockChoices = function(){
+    if ((this.zasize === 0) && (this.sauceone !== 0) || (this.saucetwo !== 0) || (this.saucethree !== 0) ||
+    (this.meatone !== 0) || (this.meattwo !== 0) || (this.meatthree !== 0) || (this.meatfour !== 0) || (this.veggieone !== 0) || (this.veggietwo !== 0) ||
+    (this.veggiethree !== 0) || (this.veggiefour !==0)){
+      $("#placeOrder").show();
+      $(".orderConformation").hide();
+      alert("Please pick a size if you would like a custom pizza");
+    }
+  }
+  CustomPizza.prototype.prntCustom = function(){
+   if (this.zasize === 6){
+     $("#customOrder").text("Small custom pizza with ");
+   }else if (this.zasize === 9){
+     $("#customOrder").text("Medium custom pizza with ");
+   }else if (this.zasize === 12){
+     $("#customOrder").text("Large custom pizza with ");
+   }
+  }
+  SpecialPizza.prototype.prntSpecial= function(){
+    $("#pizzasOrdered").empty();
+    if (this.specialOne !== 0){
+      $("#pizzasOrdered").prepend("<li>" + "Hawian Biden" + "</li>");
+    };
+    if (this.specialTwo !== 0){
+      $("#pizzasOrdered").prepend("<li>" + "Cracker Jack Smack" + "</li>");
+    };
+    if (this.specialThree !== 0){
+      $("#pizzasOrdered").prepend("<li>" + "Fat Jack Heart Attack" + "</li>");
+    };
+    if (this.specialFour !== 0){
+      $("#pizzasOrdered").prepend("<li>" + "Finger Lickin' BBQ Chicken" + "</li>");
+    };
+    if (this.specialFive !== 0){
+      $("#pizzasOrdered").prepend("<li>" + "Steezy Steve's Pepperoni and Cheese" + "</li>");
+    };
+    if (this.specialSix !== 0){
+      $("#pizzasOrdered").prepend("<li>" + "If A Pizza Could Be Healthy" + "</li>");
+    };
+  }
+  CustomPizza.prototype.price = function (specialOne, specialTwo, specialThree,specialFour, specialFive, specialSix){
+    var priceAdd = specialOne + specialTwo + specialThree + specialFour + specialFive + specialSix + this.zasize + this.sauceone + this.saucetwo + this.saucethree + this.meatone + this.meattwo + this.meatthree + this.meatfour + this.veggieone + this.veggietwo + this.veggiethree + this.veggiefour;
+    return priceAdd;
+  };
   var tax = function(pizzaPrice){
-    return pizzaPrice * .065;
+    var longTax = pizzaPrice * .065;
+    return longTax;
+  };
+  var addTax = function(price,tax){
+    var decimals = price + tax
+    return decimals.toFixed(2);
+  };
+  var prntTotals = function(newPrice, newTax, newTotal){
+    $("#listPrices").empty();
+    $("#listPrices").append("<li>" + "Total: $" + newPrice.toFixed(2) + "</li>");
+    $("#listPrices").append("<li>" + "Tax: $" + newTax.toFixed(2) + "</li>");
+    $("#listPrices").append("<li>" + "Total with tax: $" + newTotal + "</li>");
   }
 
 //frontend
@@ -42,10 +101,17 @@ $(document).ready(function(){
     var onion = parseFloat($("#onion").val());
     var bell = parseFloat($("#bellPepper").val());
     var zuch = parseFloat($("#zuchinni").val());
-    var newPizza = new CustomPizza(customSize,sauceRed,sauceBbq,sauceWhite,pepperoni,italian,bacon,meatBall,jalepeno,onion,bell,zuch)
+    var newSpecialPizza = new SpecialPizza(hawaii, jack, heart, chicken, steve, health);
+    var newPizza = new CustomPizza(customSize,sauceRed,sauceBbq,sauceWhite,pepperoni,italian,bacon,meatBall,jalepeno,onion,bell,zuch);
     var newPrice = newPizza.price(hawaii, jack, heart, chicken, steve, health);
     var newTax = tax(newPrice);
-    $("#listPrices").append("<li>" + "Pizza Total: " + newPrice + "</li>");
+    var newTotal = addTax(newPrice, newTax);
+    newSpecialPizza.prntSpecial();
+    prntTotals(newPrice, newTax, newTotal);
+    $("#placeOrder").hide();
+    $(".orderConformation").show();
+    newPizza.blockChoices();
+    newPizza.prntCustom();
 });
 $("#done").click(function(event){
   event.preventDefault();
