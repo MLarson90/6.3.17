@@ -1,6 +1,21 @@
 //backend
-
-
+  function CustomPizza (zasize,sauceone,saucetwo,saucethree,meatone,meattwo,meatthree,meatfour,veggieone,veggietwo,veggiethree,veggiefour){
+    this.zasize = zasize;
+    this.sauceone = sauceone;
+    this.saucetwo = saucetwo;
+    this.saucethree = saucethree;
+    this.meatone = meatone;
+    this.meattwo = meattwo;
+    this.meatthree = meatthree;
+    this.meatfour = meatfour;
+    this.veggieone = veggieone;
+    this.veggietwo = veggietwo;
+    this.veggiethree = veggiethree;
+    this.veggiefour = veggiefour;
+  }
+  CustomPizza.prototype.price = function (specialOne, specialTwo, specialThree,specialFour, specialFive, SpecialSix){
+    return specialOne + specialTwo + specialThree + specialFour + specialFive + SpecialSix + this.zasize + this.sauceone + this.saucetwo + this.saucethree + this.meatone + this.meattwo + this.meatthree + this.meatfour + this.veggieone + this.veggietwo + this.veggiethree + this.veggiefour;
+  }
 
 
 //frontend
@@ -25,5 +40,8 @@ $(document).ready(function(){
     var onion = parseFloat($("#onion").val());
     var bell = parseFloat($("#bellPepper").val());
     var zuch = parseFloat($("#zuchinni").val());
+    var newPizza = new CustomPizza(customSize,sauceRed,sauceBbq,sauceWhite,pepperoni,italian,bacon,meatBall,jalepeno,onion,bell,zuch)
+    var newPrice = newPizza.price(hawaii, jack, heart, chicken, steve, health);
+    console.log(newPrice);
 });
 });
