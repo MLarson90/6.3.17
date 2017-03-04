@@ -1,3 +1,6 @@
+body{
+  background-color: #FFEBCD;
+}
 .topBar{
   background-color: red;
   margin-top: 0;
@@ -13,6 +16,7 @@
   border:2px solid black;
   height:420px;
   margin-top: 10px;
+  background-color: white;
 }
 .description h2{
   background-color: red;
@@ -30,6 +34,7 @@
   border:2px solid black;
   height:120px;
   margin-top: 10px;
+  background-color: white;
 }
 .customChoice h2{
   background-color: red;
