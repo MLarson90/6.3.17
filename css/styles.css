@@ -16,6 +16,7 @@
 }
 .description h2{
   background-color: red;
+  border-bottom: 6px double black;
   color:white;
   margin:0px;
   padding:10px;
@@ -32,6 +33,7 @@
 }
 .customChoice h2{
   background-color: red;
+  border-bottom: 6px double black;
   color:white;
   margin:0px;
   padding:10px;

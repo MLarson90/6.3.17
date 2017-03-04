@@ -101,46 +101,46 @@
   SpecialPizza.prototype.prntSpecial= function(){
     $("#pizzasOrdered").empty();
     if (this.specialOne === 15){
-      $("#pizzasOrdered").prepend("<li>" + "1 small Hawian Biden" + "</li>");
+      $("#pizzasOrdered").prepend("<li>" + "small Hawian Biden" + "</li>");
     }else if(this.specialOne === 17){
-      $("#pizzasOrdered").prepend("<li>" + "1 medium Hawian Biden" + "</li>");
+      $("#pizzasOrdered").prepend("<li>" + "medium Hawian Biden" + "</li>");
     }else if(this.specialOne === 20){
-      $("#pizzasOrdered").prepend("<li>" + "1 large Hawian Biden" + "</li>");
+      $("#pizzasOrdered").prepend("<li>" + "large Hawian Biden" + "</li>");
     };
     if (this.specialTwo === 15){
-      $("#pizzasOrdered").prepend("<li>" + "1 small Cracker Jack Smack" + "</li>");
+      $("#pizzasOrdered").prepend("<li>" + "small Cracker Jack Smack" + "</li>");
     }else if(this.specialTwo === 17){
-      $("#pizzasOrdered").prepend("<li>" + "1 medium Cracker Jack Smack" + "</li>");
+      $("#pizzasOrdered").prepend("<li>" + "medium Cracker Jack Smack" + "</li>");
     }else if(this.specialTwo === 20){
-      $("#pizzasOrdered").prepend("<li>" + "1 Large Cracker Jack Smack" + "</li>");
+      $("#pizzasOrdered").prepend("<li>" + "Large Cracker Jack Smack" + "</li>");
     };
     if (this.specialThree === 15){
-      $("#pizzasOrdered").prepend("<li>" + "1 small Fat Jack Heart Attack" + "</li>");
+      $("#pizzasOrdered").prepend("<li>" + "small Fat Jack Heart Attack" + "</li>");
     }else if(this.specialThree === 17){
-      $("#pizzasOrdered").prepend("<li>" + "1 medium Fat Jack Heart" + "</li>");
+      $("#pizzasOrdered").prepend("<li>" + "medium Fat Jack Heart" + "</li>");
     }else if(this.specialThree === 20){
-      $("#pizzasOrdered").prepend("<li>" + "1 large Fat Jack Heart" + "</li>");
+      $("#pizzasOrdered").prepend("<li>" + "large Fat Jack Heart" + "</li>");
     };
     if (this.specialFour === 15){
-      $("#pizzasOrdered").prepend("<li>" + "1 smallFinger Lickin' BBQ Chicken" + "</li>");
+      $("#pizzasOrdered").prepend("<li>" + "smallFinger Lickin' BBQ Chicken" + "</li>");
     }else if(this.specialFour === 17){
-      $("#pizzasOrdered").prepend("<li>" + "1 medium Finger Lickin' BBQ Chicken" + "</li>");
+      $("#pizzasOrdered").prepend("<li>" + "medium Finger Lickin' BBQ Chicken" + "</li>");
     }else if(this.specialFour === 20){
-      $("#pizzasOrdered").prepend("<li>" + "1 large Finger Lickin' BBQ Chicken" + "</li>");
+      $("#pizzasOrdered").prepend("<li>" + "large Finger Lickin' BBQ Chicken" + "</li>");
     };
     if (this.specialFive === 15){
-      $("#pizzasOrdered").prepend("<li>" + "1 small Steezy Steve's Pepperoni and Cheese" + "</li>");
+      $("#pizzasOrdered").prepend("<li>" + "small Steezy Steve's Pepperoni and Cheese" + "</li>");
     }else if(this.specialFive === 17){
-      $("#pizzasOrdered").prepend("<li>" + "1 medium Steezy Steve's Pepperoni and Cheese" + "</li>");
+      $("#pizzasOrdered").prepend("<li>" + "medium Steezy Steve's Pepperoni and Cheese" + "</li>");
     }else if(this.specialFive === 20){
-      $("#pizzasOrdered").prepend("<li>" + "1 large Steezy Steve's Pepperoni and Cheese" + "</li>");
+      $("#pizzasOrdered").prepend("<li>" + "large Steezy Steve's Pepperoni and Cheese" + "</li>");
     };
     if (this.specialSix === 15){
-      $("#pizzasOrdered").prepend("<li>" + "1 small If A Pizza Could Be Healthy" + "</li>");
+      $("#pizzasOrdered").prepend("<li>" + "small If A Pizza Could Be Healthy" + "</li>");
     }else if(this.specialSix === 17){
-      $("#pizzasOrdered").prepend("<li>" + "1 medium If A Pizza Could Be Healthy" + "</li>");
+      $("#pizzasOrdered").prepend("<li>" + "medium If A Pizza Could Be Healthy" + "</li>");
     }else if(this.specialSix === 20){
-      $("#pizzasOrdered").prepend("<li>" + "1 large If A Pizza Could Be Healthy" + "</li>");
+      $("#pizzasOrdered").prepend("<li>" + "large If A Pizza Could Be Healthy" + "</li>");
     };
   }
   CustomPizza.prototype.price = function (specialOne, specialTwo, specialThree,specialFour, specialFive, specialSix){
