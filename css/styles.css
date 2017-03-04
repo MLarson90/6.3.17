@@ -142,3 +142,8 @@
   font-size: 25px;
   color:red;
 }
+#placeOrder button{
+  margin: 30px;
+  color: red;
+  font-size: 30px;
+}

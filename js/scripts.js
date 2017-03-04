@@ -100,23 +100,47 @@
   }
   SpecialPizza.prototype.prntSpecial= function(){
     $("#pizzasOrdered").empty();
-    if (this.specialOne !== 0){
-      $("#pizzasOrdered").prepend("<li>" + "Hawian Biden" + "</li>");
+    if (this.specialOne === 15){
+      $("#pizzasOrdered").prepend("<li>" + "1 small Hawian Biden" + "</li>");
+    }else if(this.specialOne === 17){
+      $("#pizzasOrdered").prepend("<li>" + "1 medium Hawian Biden" + "</li>");
+    }else if(this.specialOne === 20){
+      $("#pizzasOrdered").prepend("<li>" + "1 large Hawian Biden" + "</li>");
     };
-    if (this.specialTwo !== 0){
-      $("#pizzasOrdered").prepend("<li>" + "Cracker Jack Smack" + "</li>");
+    if (this.specialTwo === 15){
+      $("#pizzasOrdered").prepend("<li>" + "1 small Cracker Jack Smack" + "</li>");
+    }else if(this.specialTwo === 17){
+      $("#pizzasOrdered").prepend("<li>" + "1 medium Cracker Jack Smack" + "</li>");
+    }else if(this.specialTwo === 20){
+      $("#pizzasOrdered").prepend("<li>" + "1 Large Cracker Jack Smack" + "</li>");
     };
-    if (this.specialThree !== 0){
-      $("#pizzasOrdered").prepend("<li>" + "Fat Jack Heart Attack" + "</li>");
+    if (this.specialThree === 15){
+      $("#pizzasOrdered").prepend("<li>" + "1 small Fat Jack Heart Attack" + "</li>");
+    }else if(this.specialThree === 17){
+      $("#pizzasOrdered").prepend("<li>" + "1 medium Fat Jack Heart" + "</li>");
+    }else if(this.specialThree === 20){
+      $("#pizzasOrdered").prepend("<li>" + "1 large Fat Jack Heart" + "</li>");
     };
-    if (this.specialFour !== 0){
-      $("#pizzasOrdered").prepend("<li>" + "Finger Lickin' BBQ Chicken" + "</li>");
+    if (this.specialFour === 15){
+      $("#pizzasOrdered").prepend("<li>" + "1 smallFinger Lickin' BBQ Chicken" + "</li>");
+    }else if(this.specialFour === 17){
+      $("#pizzasOrdered").prepend("<li>" + "1 medium Finger Lickin' BBQ Chicken" + "</li>");
+    }else if(this.specialFour === 20){
+      $("#pizzasOrdered").prepend("<li>" + "1 large Finger Lickin' BBQ Chicken" + "</li>");
     };
-    if (this.specialFive !== 0){
-      $("#pizzasOrdered").prepend("<li>" + "Steezy Steve's Pepperoni and Cheese" + "</li>");
+    if (this.specialFive === 15){
+      $("#pizzasOrdered").prepend("<li>" + "1 small Steezy Steve's Pepperoni and Cheese" + "</li>");
+    }else if(this.specialFive === 17){
+      $("#pizzasOrdered").prepend("<li>" + "1 medium Steezy Steve's Pepperoni and Cheese" + "</li>");
+    }else if(this.specialFive === 20){
+      $("#pizzasOrdered").prepend("<li>" + "1 large Steezy Steve's Pepperoni and Cheese" + "</li>");
     };
-    if (this.specialSix !== 0){
-      $("#pizzasOrdered").prepend("<li>" + "If A Pizza Could Be Healthy" + "</li>");
+    if (this.specialSix === 15){
+      $("#pizzasOrdered").prepend("<li>" + "1 small If A Pizza Could Be Healthy" + "</li>");
+    }else if(this.specialSix === 17){
+      $("#pizzasOrdered").prepend("<li>" + "1 medium If A Pizza Could Be Healthy" + "</li>");
+    }else if(this.specialSix === 20){
+      $("#pizzasOrdered").prepend("<li>" + "1 large If A Pizza Could Be Healthy" + "</li>");
     };
   }
   CustomPizza.prototype.price = function (specialOne, specialTwo, specialThree,specialFour, specialFive, specialSix){
@@ -178,7 +202,7 @@ $(document).ready(function(){
   });
   $("#morePizza").click(function(event){
     event.preventDefault();
-    $("#secondPizza").prepend('<div class="row">'+
+    $("#secondPizza").prepend('<div id="pizzaTwo" class="container">' + '<div class="row">'+
       '<div class="col-sm-3">'+
           '<div class="radio">'+
             '<label>'+
@@ -331,7 +355,26 @@ $(document).ready(function(){
         '</div>'+
       '</div>'+
     '</div>'+
-    '<button type="submit">Place Order</button>');
+    '<button id="pizzaTwo" type="submit">Add to Order</button>' +'</div>');
     $("#morePizza").hide();
+    $("#or").hide();
+  });
+    $("#pizzaTwo").each(function(){
+    var customSizey = parseInt($("input:radio[name=pizzaSize]:checked").val());
+    var sauceyRed = parseFloat($(this).find("#redSauce").val());
+    var sauceyBbq = parseFloat($(this).find("#bbq").val());
+    var sauceyWhite = parseFloat($(this).find("#whiteSauce").val());
+    var pepperoniy = parseFloat($(this).find("#pepperoni").val());
+    var italiany = parseFloat($(this).find("#italian").val());
+    var bacony = parseFloat($(this).find("#bacon").val());
+    var meatBally = parseFloat($(this).find("#meatBall").val());
+    var jalepenoy = parseFloat($(this).find("#jalepeno").val());
+    var oniony = parseFloat($(this).find("#onion").val());
+    var belly = parseFloat($(this).find("#bellPepper").val());
+    var zuchy = parseFloat($(this).find("#zuchinni").val());
+    var secondPizzay = new CustomPizza(customSizey,sauceyRed,sauceyBbq,sauceyWhite,pepperoniy,italiany,bacony,meatBally,jalepenoy,oniony,belly,zuchy);
+    console.log(secondPizzay);
+
+
   });
 });
